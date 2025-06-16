@@ -17,6 +17,11 @@ export const add = (numStr: string): number => {
     .map(Number)
     .filter((num) => num < 1000);
 
+  const negatives = numArr.filter((num) => num < 0);
+  if (negatives.length > 0) {
+    throw new Error(`Negatives not allowed: ${negatives.join(",")}`);
+  }
+
   const sum = numArr.reduce((acc, curr) => acc + curr, 0);
   return sum;
 };

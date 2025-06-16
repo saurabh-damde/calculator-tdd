@@ -13,4 +13,6 @@ describe("String Calculator", () => {
   test("Support custom single-character delimiters", () =>
     expect(add("//;\n2;3")).toBe(5));
   test("Ignore numbers greater than 1000", () => expect(add("1,1001")).toBe(1));
+  test("Throw error for negative numbers with all negatives in message", () =>
+    expect(() => add("1,-1")).toThrow("Negatives not allowed: -1"));
 });

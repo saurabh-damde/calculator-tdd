@@ -10,4 +10,6 @@ describe("String Calculator", () => {
     expect(add("1,3,5,7,9")).toBe(25));
   test("Support newline characters as valid delimiters", () =>
     expect(add("1,3\n5\n7,9")).toBe(25));
+  test("Support custom single-character delimiters", () =>
+    expect(add("//;\n2;3")).toBe(5));
 });

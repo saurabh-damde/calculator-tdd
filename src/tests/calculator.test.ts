@@ -6,6 +6,8 @@ describe("String Calculator", () => {
     expect(add("5")).toBe(5));
   test("Return sum of two comma-separated numbers", () =>
     expect(add("2,3")).toBe(5));
-  test("Return sum of two comma-separated numbers", () =>
+  test("Support unknown amount of comma-separated numbers", () =>
     expect(add("1,3,5,7,9")).toBe(25));
+  test("Support newline characters as valid delimiters", () =>
+    expect(add("1,3\n5\n7,9")).toBe(25));
 });

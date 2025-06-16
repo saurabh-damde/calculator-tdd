@@ -12,4 +12,5 @@ describe("String Calculator", () => {
     expect(add("1,3\n5\n7,9")).toBe(25));
   test("Support custom single-character delimiters", () =>
     expect(add("//;\n2;3")).toBe(5));
+  test("Ignore numbers greater than 1000", () => expect(add("1,1001")).toBe(1));
 });

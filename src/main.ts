@@ -12,7 +12,11 @@ export const add = (numStr: string): number => {
     delimiterRegEx = new RegExp(escapeRegExp(delimiter));
   }
 
-  const numArr = numbers.split(delimiterRegEx).map(Number);
+  const numArr = numbers
+    .split(delimiterRegEx)
+    .map(Number)
+    .filter((num) => num < 1000);
+
   const sum = numArr.reduce((acc, curr) => acc + curr, 0);
   return sum;
 };

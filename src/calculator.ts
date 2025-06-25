@@ -17,6 +17,18 @@ export const add = (numStr: string): number => {
     .map(Number)
     .filter((num) => num < 1000);
 
+  const strings = numbers.split(delimiterRegEx).filter((item) => {
+    let num = parseInt(item);
+    if (isNaN(num)) {
+      return true;
+    }
+    return false;
+  });
+
+  if(strings.length > 0){
+    throw new Error(`Strings not allowed: ${strings.join(',')}`);
+  }
+
   const negatives = numArr.filter((num) => num < 0);
   if (negatives.length > 0) {
     throw new Error(`Negatives not allowed: ${negatives.join(",")}`);
@@ -29,3 +41,5 @@ export const add = (numStr: string): number => {
 const escapeRegExp = (str: string): string => {
   return str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 };
+
+// add("12,23,ab,cd,23,-2");
